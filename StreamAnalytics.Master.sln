@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StreamAnalytics.Ingest", "StreamAnalytics.Ingest\StreamAnalytics.Ingest.csproj", "{87DE8862-DFFD-4EB7-9534-73A8B08AEB21}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataStreamFactory", "DataStreamFactory\DataStreamFactory.csproj", "{9DDB2885-0604-48AC-9F7F-B05034547DEF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{87DE8862-DFFD-4EB7-9534-73A8B08AEB21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87DE8862-DFFD-4EB7-9534-73A8B08AEB21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87DE8862-DFFD-4EB7-9534-73A8B08AEB21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87DE8862-DFFD-4EB7-9534-73A8B08AEB21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DDB2885-0604-48AC-9F7F-B05034547DEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DDB2885-0604-48AC-9F7F-B05034547DEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DDB2885-0604-48AC-9F7F-B05034547DEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DDB2885-0604-48AC-9F7F-B05034547DEF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1F6DAA31-AA5C-4E8F-9135-2260CE683982}
+	EndGlobalSection
+EndGlobal
