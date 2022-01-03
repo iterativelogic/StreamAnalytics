@@ -1,3 +1,8 @@
+using StreamAnalytics.Ingest.BackgroundService;
+using StreamAnalytics.Ingest.System.Consumer;
+using StreamAnalytics.Ingest.System.Dataflow;
+using StreamAnalytics.Ingest.System.Producer;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,11 +12,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddHostedService<ConsumerService>();
+builder.Services.AddSingleton<OpcIngestRequestDataConsumer>();
+builder.Services.AddSingleton<IngestPipeline>();
+builder.Services.AddScoped<OpcIngestRequestDataProducer>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+if (app.Environment.IsDevelopment()) {
   app.UseSwagger();
   app.UseSwaggerUI();
 }
@@ -19,6 +28,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseRouting();
 
 app.MapControllers();
 

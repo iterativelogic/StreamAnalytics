@@ -1,0 +1,2 @@
+dotnet ef dbcontext scaffold "Server=localhost; Database=Connected_Manufacturing; User Id=sa;Password=Wel@plex30" "Microsoft.EntityFrameworkCore.SqlServer" -c StreamAnalyticsDbContext -o ./Entities --startup-project ../StreamAnalytics.System.Data.EFStartup
+
