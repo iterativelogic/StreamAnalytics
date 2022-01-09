@@ -7,6 +7,6 @@ namespace StreamAnalytics.Ingest.System.Dataflow.Objects
   {
     public IngestDataTransform IngestData { get; set; }
     public IEnumerable<Tag> Tags { get; set; }
-    public IEnumerable<Asset> Assets { get; set; }
+    public IEnumerable<Tag> ExistingTags { get; set; }
   }
 }

@@ -7,6 +7,6 @@ namespace StreamAnalytics.System.Models.Tags
     override public TagValue Value { get; set; }
     public override TagValue LastGoodValue { get; set; }
     public override Guid DataTypeId => Value.DataTypeId;
-    public override Guid? StreamTypeId { get; set; }
+    public override Guid StreamType { get; set; }
   }
 }

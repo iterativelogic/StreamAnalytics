@@ -15,10 +15,11 @@ namespace StreamAnalytics.System.Data.Repositories
       this.dbContext = dbContext;
     }
 
-    public async Task<IEnumerable<Asset>> GetAssetsAsync(TenantId tenantId, IEnumerable<Guid> assetIds)
+    public async Task<IEnumerable<Asset>> GetAssetsAsync(TenantId tenantId, IEnumerable<Guid?> assetIds)
     {
       var assets = await dbContext.PhysicalAssets
         .Where(asset => asset.TenantId == tenantId.Value && assetIds.Contains(asset.PhysicalAssetId))
+        .AsNoTracking()
         .ToListAsync();
 
       return assets.Select(asset => asset.Map()).ToList();

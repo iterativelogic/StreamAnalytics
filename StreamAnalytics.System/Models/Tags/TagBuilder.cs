@@ -15,7 +15,7 @@ namespace StreamAnalytics.System.Models.Tags
     public TenantId TenantId { set => _tag.TenantId = value; }
     public Guid TagId { set => _tag.TagId = value; }
     public Guid GatewayId { set => _tag.GatewayId = value; }
-    public Guid PhysicalAssetId { set => _tag.PhysicalAssetId = value; }
+    public Guid? PhysicalAssetId { set => _tag.PhysicalAssetId = value; }
     public string TagName { set => _tag.TagName = value; }
     public string TagAlias { set => _tag.TagAlias = value; }
     public Guid? SeverityId { set => _tag.SeverityId = value; }
@@ -26,7 +26,9 @@ namespace StreamAnalytics.System.Models.Tags
       set => _tag.Value = value;
     }
     public TagValue LastGoodValue { set => _tag.LastGoodValue = value; }
-    public Guid? StreamTypeId { set => _tag.StreamTypeId = value; }
+    public Guid StreamType { set => _tag.StreamType = value; }
+    public Guid SourceId { set => _tag.SourceId = value; }
+
 
     public Tag Build() => _tag;
   }

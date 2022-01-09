@@ -8,10 +8,10 @@ namespace StreamAnalytics.Ingest.Controllers
   [Route("[controller]")]
   public class IngestController : ControllerBase
   {
-    private readonly OpcIngestRequestDataProducer _producer;
+    private readonly OpcIngestSourceDataProducer _producer;
     private readonly ILogger<IngestController> _logger;
 
-    public IngestController(OpcIngestRequestDataProducer producer, ILogger<IngestController> logger)
+    public IngestController(OpcIngestSourceDataProducer producer, ILogger<IngestController> logger)
     {
       _producer = producer;
       _logger = logger;

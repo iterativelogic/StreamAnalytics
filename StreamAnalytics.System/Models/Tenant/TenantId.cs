@@ -1,5 +1,9 @@
-﻿namespace StreamAnalytics.System.Models.Tenant
+﻿using System.Text.Json.Serialization;
+using StreamAnalytics.System.Serialization;
+
+namespace StreamAnalytics.System.Models.Tenant
 {
+  [JsonConverter(typeof(TenantIdJsonConverter))]
   public struct TenantId : IEquatable<TenantId>
   {
     public TenantId(Guid tenantId)

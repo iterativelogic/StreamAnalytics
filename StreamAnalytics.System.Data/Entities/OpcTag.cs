@@ -23,6 +23,7 @@
     public DateTimeOffset? Timestamp { get; set; }
     public string? LastGoodValue { get; set; }
     public DateTimeOffset? LastGoodTimestamp { get; set; }
+    public Guid SourceId { get; set; }
 
     public virtual DataType? DataType { get; set; }
     public virtual EventType? EventType { get; set; }

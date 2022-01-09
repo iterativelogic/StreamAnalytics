@@ -26,6 +26,7 @@ namespace StreamAnalytics.Ingest.System.Consumer
 
       this.pipeline = pipeline;
       this.logger = logger;
+      logger.LogInformation($"Initialized {nameof(OpcIngestRequestDataConsumer)}");
     }
 
     public async Task ConsumeStreamAsync(CancellationToken ct)
@@ -36,8 +37,6 @@ namespace StreamAnalytics.Ingest.System.Consumer
         var isAccepted = await pipeline.BufferBlock.SendAsync(request);
 
         _consumer.Commit(item);
-
-        var te = pipeline.TList;
 
         logger.LogInformation($"Accepted: {isAccepted}");
         logger.LogInformation(request.TenantId.ToString());

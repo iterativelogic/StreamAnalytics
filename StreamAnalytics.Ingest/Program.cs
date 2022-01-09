@@ -15,7 +15,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddHostedService<ConsumerService>();
 builder.Services.AddSingleton<OpcIngestRequestDataConsumer>();
 builder.Services.AddSingleton<IngestPipeline>();
-builder.Services.AddScoped<OpcIngestRequestDataProducer>();
+builder.Services.AddSingleton<OpcIngestSinkDataProducer>();
+builder.Services.AddScoped<OpcIngestSourceDataProducer>();
 
 var app = builder.Build();
 

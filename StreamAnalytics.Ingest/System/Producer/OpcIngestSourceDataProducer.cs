@@ -5,13 +5,13 @@ using StreamAnalytics.System.Models;
 
 namespace StreamAnalytics.Ingest.System.Producer
 {
-  public class OpcIngestRequestDataProducer : IDisposable
+  public class OpcIngestSourceDataProducer : IDisposable
   {
     private readonly IProducer<string, string> _producer;
-    private readonly ILogger<OpcIngestRequestDataProducer> _logger;
+    private readonly ILogger<OpcIngestSourceDataProducer> _logger;
     private bool disposedValue;
 
-    public OpcIngestRequestDataProducer(ILogger<OpcIngestRequestDataProducer> logger)
+    public OpcIngestSourceDataProducer(ILogger<OpcIngestSourceDataProducer> logger)
     {
       var builder = new ProducerBuilder<string, string>(new ProducerConfig {
         BootstrapServers = "localhost:9093"
@@ -23,6 +23,12 @@ namespace StreamAnalytics.Ingest.System.Producer
 
     public async Task ProduceAsync(OpcIngestRequest request)
     {
+      var message = CreateMessage(request);
+
+      _logger.LogInformation("Created serialized message...");
+      _logger.LogInformation(message.Key);
+      _logger.LogInformation(message.Value);
+
       var deliveryResult = await _producer.ProduceAsync(KafkaTopics.CM_OPC_INGEST_REQUEST, CreateMessage(request));
       _logger.LogInformation($"Delivered to partition:{deliveryResult.TopicPartition} offset:{deliveryResult.Offset} for topic {KafkaTopics.CM_OPC_INGEST_REQUEST}");
     }

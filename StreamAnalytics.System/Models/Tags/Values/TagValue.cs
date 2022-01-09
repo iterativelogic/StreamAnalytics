@@ -23,12 +23,12 @@ namespace StreamAnalytics.System.Models.Tags.Values
     {
       _dataType = TagValueDataType.String;
       _value = value;
-    }     
-        
+    }
+
     public Guid DataTypeId => _dataType switch {
       TagValueDataType.Boolean => DataTypes.Boolean,
-      TagValueDataType.Numerical => DataTypes.Boolean,
-      TagValueDataType.String => DataTypes.Boolean,
+      TagValueDataType.Numerical => DataTypes.Numerical,
+      TagValueDataType.String => DataTypes.String,
       _ => Guid.Empty
     };
 
@@ -41,7 +41,7 @@ namespace StreamAnalytics.System.Models.Tags.Values
       return _value.ToString();
     }
 
-    private static TagValue CreateStringValue(string value)
+    private static TagValue CreateTagValue(string value)
     {
       if (bool.TryParse(value, out bool boolValue))
         return new TagValue(boolValue);
@@ -53,6 +53,6 @@ namespace StreamAnalytics.System.Models.Tags.Values
 
     public static implicit operator TagValue(bool value) => new TagValue(value);
     public static implicit operator TagValue(int value) => new TagValue(value);
-    public static implicit operator TagValue(string value) => CreateStringValue(value);
+    public static implicit operator TagValue(string value) => CreateTagValue(value);
   }
 }

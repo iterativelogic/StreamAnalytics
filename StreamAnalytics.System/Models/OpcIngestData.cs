@@ -1,4 +1,5 @@
 ﻿using System.Text.Json.Serialization;
+using StreamAnalytics.System.Serialization;
 
 namespace StreamAnalytics.System.Models
 {
@@ -11,7 +12,8 @@ namespace StreamAnalytics.System.Models
     public bool Quality { get; set; }
 
     [JsonPropertyName("v")]
-    public bool Value { get; set; }
+    [JsonConverter(typeof(IngestDataValueJsonConverter))]
+    public string Value { get; set; }
 
     [JsonPropertyName("t")]
     public long Timestamp { get; set; }
