@@ -13,6 +13,7 @@ import Badge from "@mui/material/Badge";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
+import InsightsIcon from "@mui/icons-material/Insights";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
@@ -113,6 +114,7 @@ function DashboardContent() {
               noWrap
               sx={{ flexGrow: 1 }}
             >
+              <InsightsIcon />
               Stream Analytics
             </Typography>
           </Toolbar>
@@ -126,6 +128,16 @@ function DashboardContent() {
               px: [1],
             }}
           >
+            <Typography
+              component="h1"
+              variant="h6"
+              color="inherit"
+              noWrap
+              sx={{ flexGrow: 1 }}
+            >
+              <InsightsIcon />
+              Stream Analytics
+            </Typography>
             <IconButton onClick={toggleDrawer}>
               <ChevronLeftIcon />
             </IconButton>
