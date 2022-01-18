@@ -4,7 +4,6 @@ import "./App.css";
 import { Routes, Route, Link } from "react-router-dom";
 import { EventLog } from "./main/event-log/components";
 
-
 function App() {
   return (
     <>
@@ -24,9 +23,9 @@ function App() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Link to="/eventlog">Event Log</Link>
             Learn React
           </a>
+          <Link to="/eventlog">Event Log</Link>
         </header>
       </div>
     </>
