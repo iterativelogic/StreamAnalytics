@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using StreamAnalytics.Core.Services;
+using StreamAnalytics.System.Models.Tenant;
 
 namespace StreamAnalytics.Core.Controllers
 {
@@ -6,19 +8,24 @@ namespace StreamAnalytics.Core.Controllers
   [Route("[controller]")]
   public class CoreController : ControllerBase
   {
-    private static readonly string[] Summaries = new[]
-    {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
-
+    private readonly DruidDataService dataService;
     private readonly ILogger<CoreController> _logger;
 
-    public CoreController(ILogger<CoreController> logger)
+    public CoreController(DruidDataService dataService, ILogger<CoreController> logger)
     {
+      this.dataService = dataService;
       _logger = logger;
     }
 
     [HttpGet("ping")]
     public string Ping() => "pong";
+
+    [HttpGet("logs")]
+    public async Task<IActionResult> GetLogs()
+    {
+      var info = new TenantInfo(Guid.NewGuid(), Guid.NewGuid());
+      var logs = await dataService.GetLogs(info, HttpContext.RequestAborted);
+      return Ok(logs);
+    }
   }
 }
